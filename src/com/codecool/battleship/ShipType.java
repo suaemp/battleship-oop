@@ -7,6 +7,7 @@ public enum ShipType {
     BATTLESHIP(3, 2),
     SUBMARINE(4, 1),
     DESTROYER(5, 1);
+//    ShipType.CARRIER.getAction();
 
     // declaring private variable for getting values
     private final int length;
