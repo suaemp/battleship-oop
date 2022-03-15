@@ -10,12 +10,16 @@ public class Display {
     }
 
     public void displayMenu() {
-        System.out.println("1. Start Game");
-        System.out.println("2. Options");
-        System.out.println("3. Credits");
-        System.out.println("4. Exit");
-
-
+        for (int i = 1; i <= 3; i++) {
+            String option = "";
+            if (i == 1)
+                option = ". Start Game";
+            if (i == 2)
+                option = ". Credits";
+            if (i == 3)
+                option = ". Exit";
+            printMessage((i) + option);
+        }
     }
 
     public void displayBoard(Board board) {
@@ -37,6 +41,12 @@ public class Display {
 
         }
     }
+
+    public void displayCredits() {
+        printMessage("Made by Wika & Wika");
+
+    }
+
     public void printMessage(String message){
         System.out.println(message);
     }
@@ -44,8 +54,8 @@ public class Display {
 //    TODO: change to sztywny board
     private void printBoardSigns() {
         System.out.print("     ");
-        char[] abc = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        for (int j = 0; j < 9; j++){
+        char[] abc = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+        for (int j = 0; j < 10; j++){
             System.out.print(abc[j]+"  ");
 
         }System.out.println();}

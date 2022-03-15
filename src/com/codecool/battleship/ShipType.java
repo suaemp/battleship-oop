@@ -1,5 +1,7 @@
 package com.codecool.battleship;
 
+import java.util.List;
+
 public enum ShipType {
     // This will call enum constructor with one int argument
     CARRIER(1, 4),
@@ -7,12 +9,17 @@ public enum ShipType {
     BATTLESHIP(3, 2),
     SUBMARINE(4, 1),
     DESTROYER(5, 1);
-//    ShipType.CARRIER.getAction();
 
     // declaring private variable for getting values
     private final int length;
     private final int quantity;
 
+    // enum constructor - cannot be public or protected
+    ShipType(int length, int quantity)
+    {
+        this.length = length;
+        this.quantity = quantity;
+    }
     // getter method
     public int getAction()
     {
@@ -24,10 +31,4 @@ public enum ShipType {
         return this.quantity;
     }
 
-    // enum constructor - cannot be public or protected
-    ShipType(int length, int quantity)
-    {
-        this.length = length;
-        this.quantity = quantity;
-    }
 }

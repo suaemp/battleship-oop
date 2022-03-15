@@ -20,5 +20,7 @@ public class Player {
         return true;
     }
 
-
+    public int getShipList() {
+        return shipList.size();
+    }
 }

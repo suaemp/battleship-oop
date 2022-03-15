@@ -14,7 +14,7 @@ public class Square {
 
     @Override
     public String toString() {
-        return squareStatus.getSymbol() + " ";
+        return squareStatus.getSymbol() + "  ";
     }
 
     public void setStatus(SquareStatus ship) {

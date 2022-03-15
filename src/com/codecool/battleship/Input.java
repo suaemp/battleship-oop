@@ -20,14 +20,7 @@ public class Input {
         return scanner;
     }
 
-    // TODO: WYJEBAĆ SOUTY Z DOŁU I ZAMIENIC NA METODY XD
-
-
-    public List<Integer> getShipPlacement(ShipType shipType) {
-        Display display = new Display();
-        display.printMessage("You are placing a " + shipType + " ship. Ships of this type left to place: " + shipType.getQuantity());
-        display.printMessage("Type coordinates (ex. C5) to place " + shipType.toString().toLowerCase(Locale.ROOT) + " ship: ");
-
+    public List<Integer> getShipPlacement() {
         String coordinates = getScanner().next();
         return Arrays.asList(1,1);
 

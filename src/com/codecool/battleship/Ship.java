@@ -11,7 +11,6 @@ public class Ship {
         field.add(square);
         this.squareList = field;
         square.setStatus(SquareStatus.SHIP);
-
     }
 
 }

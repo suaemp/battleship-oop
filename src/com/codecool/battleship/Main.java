@@ -4,6 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println(ShipType.values().length);
+
         Battleship battleship = new Battleship();
 
         battleship.menuInteraction();
