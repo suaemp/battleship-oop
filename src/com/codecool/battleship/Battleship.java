@@ -47,7 +47,7 @@ public class Battleship {
     }
 
     private void pressAnyKeyToContinue() {
-        System.out.println("Press Enter key to continue...");
+        display.printMessage("Press Enter key to continue...");
         try {
             System.in.read();
         } catch (Exception IO) {

@@ -20,9 +20,14 @@ public class Input {
         return scanner;
     }
 
+// row - X axis, col - Y axis
     public List<Integer> getShipPlacement() {
         String coordinates = getScanner().next();
-        return Arrays.asList(1,1);
+        int col = Character.getNumericValue(coordinates.charAt(0)) - 10;
+        int row = Character.getNumericValue(coordinates.charAt(1)) - 1;
+
+
+        return Arrays.asList(row, col);
 
     }
 }
