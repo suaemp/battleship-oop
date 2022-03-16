@@ -3,8 +3,6 @@ package com.codecool.battleship;
 import java.util.List;
 import java.util.Locale;
 
-import static java.lang.System.exit;
-
 public class Battleship {
     private final Display display;
     private final Input input;
@@ -30,28 +28,30 @@ public class Battleship {
 //        board.createBoard();
         checkUserInput();
 ////        board.createWater();
-////        board.createBoard();
+//////        board.createBoard();
 //        display.displayBoard(board);
     }
 
     public void checkUserInput() {
         switch (input.getScanner().nextInt()) {
             case 1 -> setShipsOnWater();
-            case 2 -> util.credits();
+            case 2 -> credits();
             case 3 -> util.exitGame();
 //            case 2 -> credits();
 //            case 3 -> exitGame();
         }
     }
 
-//    private void credits() {
-//        display.displayCredits();
-//        pressAnyKeyToContinue();
-//        menuInteraction();
-//    }
+    private void credits() {
+        display.displayCredits();
+        util.pressAnyKeyToContinue();
+        menuInteraction();
+    }
 
 
     public void setShipsOnWater() {
+        board.createWater();
+        board.createBoard();
         for (ShipType shipType : ShipType.values()) {
             for (int counter = 0; counter < shipType.getQuantity(); counter++) {
                 display.printMessage("You are placing a " + shipType + " ship. Ships of this type left to place: "
@@ -60,7 +60,6 @@ public class Battleship {
                         + shipType.toString().toLowerCase(Locale.ROOT) + " ship: ");
 
                 List<Integer> coordinates = input.getShipPlacement();
-
                 Square square = board.getWater()[coordinates.get(0)][coordinates.get(1)];
                 Ship ship = new Ship(square);
                 display.displayBoard(board);
@@ -68,5 +67,6 @@ public class Battleship {
 
             }
         }
+//        display.displayBoard(board);
     }
 }

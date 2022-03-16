@@ -4,23 +4,24 @@ import static java.lang.System.exit;
 
 public class Util {
     private final Display display;
-    public Battleship battleship;
+
+
 
     public Util(Display display) {
         this.display = display;
+//        this.battleship =new Battleship();
     }
 
-    public void credits() {
-        display.displayCredits();
-        pressAnyKeyToContinue();
-
-    }
+//    public void credits() {
+//        display.displayCredits();
+//        pressAnyKeyToContinue();
+//       battleship.menuInteraction();
+//    }
 
     public void pressAnyKeyToContinue() {
         display.printMessage("Press Enter key to continue...");
         try {
             System.in.read();
-            display.displayMenu();
         } catch (Exception IO) {
         }
     }
