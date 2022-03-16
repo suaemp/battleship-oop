@@ -10,7 +10,6 @@ import static java.lang.System.exit;
 public class Input {
     private final Scanner scanner;
     private Board board;
-    private ShipType shipType;
 
     public Input() {
         this.scanner = new Scanner(System.in);
@@ -20,12 +19,27 @@ public class Input {
         return scanner;
     }
 
-// row - X axis, col - Y axis
-    public List<Integer> getShipPlacement() {
+    // row - X axis, col - Y axis
+    public List<Integer> getShipPlacement(ShipType shipType, Display display) {
         String coordinates = getScanner().next();
         int col = Character.getNumericValue(coordinates.charAt(0)) - 10;
         int row = Character.getNumericValue(coordinates.charAt(1)) - 1;
 
+        if (shipType.getAction() > 1){
+            display.printMessage("Choose direction: \n1. Up\n2. Right\n3. Down\n4. Left\n");
+            int direction = getScanner().nextInt();
+
+            switch (direction){
+                case 1:
+                    return getShipCords();
+                case 2:
+
+                case 3:
+
+                case 4:
+
+            }
+        }
 
         return Arrays.asList(row, col);
 

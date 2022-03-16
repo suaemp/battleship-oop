@@ -66,7 +66,7 @@ public class Battleship {
                         + (shipType.getQuantity() - counter));
                 display.printMessage("Type coordinates (ex. C5) to place "
                         + shipType.toString().toLowerCase(Locale.ROOT) + " ship: ");
-                List<Integer> coordinates = input.getShipPlacement();
+                List<Integer> coordinates = input.getShipPlacement(shipType, display);
 
                 Square square = board.getWater()[coordinates.get(0)][coordinates.get(1)];
                 Ship ship = new Ship(square);
