@@ -9,6 +9,7 @@ public class Battleship {
     private final Display display;
     private final Input input;
     private final Board board;
+    private Util util;
     private Player player1;
     private Player player2;
 
@@ -17,6 +18,7 @@ public class Battleship {
         this.display = new Display();
         this.input = new Input();
         this.board = new Board();
+        this.util = new Util(display);
         this.player1 = new Player("Piotr");
         this.player2 = new Player("Wika");
 
@@ -35,6 +37,8 @@ public class Battleship {
     public void checkUserInput() {
         switch (input.getScanner().nextInt()) {
             case 1 -> setShipsOnWater();
+//            case 2 -> util.credits();
+//            case 3 -> util.exitGame();
             case 2 -> credits();
             case 3 -> exitGame();
         }
@@ -46,7 +50,7 @@ public class Battleship {
         menuInteraction();
     }
 
-    private void pressAnyKeyToContinue() {
+    public void pressAnyKeyToContinue() {
         display.printMessage("Press Enter key to continue...");
         try {
             System.in.read();
@@ -66,12 +70,14 @@ public class Battleship {
                         + (shipType.getQuantity() - counter));
                 display.printMessage("Type coordinates (ex. C5) to place "
                         + shipType.toString().toLowerCase(Locale.ROOT) + " ship: ");
-                List<Integer> coordinates = input.getShipPlacement();
+                if (shipType.getAction() > 1) {
+                    List<Integer> coordinates = input.getShipPlacement();
 
-                Square square = board.getWater()[coordinates.get(0)][coordinates.get(1)];
-                Ship ship = new Ship(square);
-                display.displayBoard(board);
-                player1.addShip(ship);
+                    Square square = board.getWater()[coordinates.get(0)][coordinates.get(1)];
+                    Ship ship = new Ship(square);
+                    display.displayBoard(board);
+                    player1.addShip(ship);
+                }
             }
         }
     }
