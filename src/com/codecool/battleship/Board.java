@@ -1,13 +1,14 @@
 package com.codecool.battleship;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Board {
 
     private Square[][] water;
     private int waterSize;
     private SquareStatus squareStatus;
-
 
 
     public boolean isPlacementOk() {
@@ -37,6 +38,15 @@ public class Board {
                 water[i][j] = new Square(i, j, SquareStatus.WATER);
             }
         }
+    }
+
+    public List<Square> getSquares(List<Integer> coordinates) {
+        List<Square> squares = new ArrayList<>();
+        for (int i = 0; i < coordinates.size(); i+=2) {
+        squares.add(water[coordinates.get(i)][coordinates.get(i+1)]);
+        }
+        return squares;
+
     }
 
     @Override

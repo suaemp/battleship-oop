@@ -26,11 +26,11 @@ public class Display {
         System.out.println("              BOARD");
         System.out.println();
         printBoardSigns();
-        for (int i = 0; i <10; i++) {
+        for (int i = 0; i < 10; i++) {
             if (i >= 9) {
-                System.out.print((i+1) + " | ");
+                System.out.print((i + 1) + " | ");
             } else {
-                System.out.print((i+1) + "  | ");
+                System.out.print((i + 1) + "  | ");
             }
 
             for (int j = 0; j < 10; j++) {
@@ -47,17 +47,37 @@ public class Display {
 
     }
 
-    public void printMessage(String message){
+    public void printMessage(String message) {
         System.out.println(message);
     }
 
-//    TODO: change to sztywny board
+    //    TODO: change to sztywny board
     private void printBoardSigns() {
         System.out.print("     ");
         char[] abc = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-        for (int j = 0; j < 10; j++){
-            System.out.print(abc[j]+"  ");
+        for (int j = 0; j < 10; j++) {
+            System.out.print(abc[j] + "  ");
 
-        }System.out.println();}
+        }
+        System.out.println();
+    }
 
+    public void clearConsole() {
+        try {
+            String operatingSystem = System.getProperty("os.name"); //Check the current operating system
+
+            if (operatingSystem.contains("Windows")) {
+                ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "cls");
+                Process startProcess = pb.inheritIO().start();
+                startProcess.waitFor();
+            } else {
+                ProcessBuilder pb = new ProcessBuilder("clear");
+                Process startProcess = pb.inheritIO().start();
+
+                startProcess.waitFor();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 }

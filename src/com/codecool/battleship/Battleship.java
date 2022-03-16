@@ -1,5 +1,6 @@
 package com.codecool.battleship;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -34,14 +35,24 @@ public class Battleship {
 
     public void checkUserInput() {
         switch (input.getScanner().nextInt()) {
-            case 1 -> setShipsOnWater();
-            case 2 -> credits();
-            case 3 -> exitGame();
+            case 1:
+                setShipsOnWater();
+//                setShipsOnWater(player2,board);
+                break;
+            case 2:
+                credits();
+                break;
+            case 3:
+                exitGame();
+                break;
+
         }
     }
 
     private void credits() {
+        display.clearConsole();
         display.displayCredits();
+
         pressAnyKeyToContinue();
         menuInteraction();
     }
@@ -68,11 +79,13 @@ public class Battleship {
                         + shipType.toString().toLowerCase(Locale.ROOT) + " ship: ");
                 List<Integer> coordinates = input.getShipPlacement(shipType, display);
 
-                Square square = board.getWater()[coordinates.get(0)][coordinates.get(1)];
+                List<Square> square = board.getSquares(coordinates);
                 Ship ship = new Ship(square);
                 display.displayBoard(board);
                 player1.addShip(ship);
             }
         }
     }
+
+
 }
