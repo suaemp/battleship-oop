@@ -13,13 +13,14 @@ public class Util {
     public void credits() {
         display.displayCredits();
         pressAnyKeyToContinue();
-        display.displayMenu();
+
     }
 
     public void pressAnyKeyToContinue() {
         display.printMessage("Press Enter key to continue...");
         try {
             System.in.read();
+            display.displayMenu();
         } catch (Exception IO) {
         }
     }

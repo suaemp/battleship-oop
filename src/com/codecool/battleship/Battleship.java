@@ -26,42 +26,30 @@ public class Battleship {
 
     public void menuInteraction() {
         display.displayMenu();
-        board.createWater();
-        board.createBoard();
-        checkUserInput();
 //        board.createWater();
 //        board.createBoard();
-        display.displayBoard(board);
+        checkUserInput();
+////        board.createWater();
+////        board.createBoard();
+//        display.displayBoard(board);
     }
 
     public void checkUserInput() {
         switch (input.getScanner().nextInt()) {
             case 1 -> setShipsOnWater();
-//            case 2 -> util.credits();
-//            case 3 -> util.exitGame();
-            case 2 -> credits();
-            case 3 -> exitGame();
+            case 2 -> util.credits();
+            case 3 -> util.exitGame();
+//            case 2 -> credits();
+//            case 3 -> exitGame();
         }
     }
 
-    private void credits() {
-        display.displayCredits();
-        pressAnyKeyToContinue();
-        menuInteraction();
-    }
+//    private void credits() {
+//        display.displayCredits();
+//        pressAnyKeyToContinue();
+//        menuInteraction();
+//    }
 
-    public void pressAnyKeyToContinue() {
-        display.printMessage("Press Enter key to continue...");
-        try {
-            System.in.read();
-        } catch (Exception IO) {
-        }
-    }
-
-    private void exitGame() {
-        display.printMessage("Exit");
-        exit(0);
-    }
 
     public void setShipsOnWater() {
         for (ShipType shipType : ShipType.values()) {
@@ -70,14 +58,14 @@ public class Battleship {
                         + (shipType.getQuantity() - counter));
                 display.printMessage("Type coordinates (ex. C5) to place "
                         + shipType.toString().toLowerCase(Locale.ROOT) + " ship: ");
-                if (shipType.getAction() > 1) {
-                    List<Integer> coordinates = input.getShipPlacement();
 
-                    Square square = board.getWater()[coordinates.get(0)][coordinates.get(1)];
-                    Ship ship = new Ship(square);
-                    display.displayBoard(board);
-                    player1.addShip(ship);
-                }
+                List<Integer> coordinates = input.getShipPlacement();
+
+                Square square = board.getWater()[coordinates.get(0)][coordinates.get(1)];
+                Ship ship = new Ship(square);
+                display.displayBoard(board);
+                player1.addShip(ship);
+
             }
         }
     }

@@ -4,8 +4,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(ShipType.values().length);
-
         Battleship battleship = new Battleship();
 
         battleship.menuInteraction();
@@ -26,5 +24,6 @@ public class Main {
             // use getter method to get the value
             System.out.println("name: " + shipLength.name() +
                     "; symbol: " + shipLength.getSymbol());}
-*/    }
+*/
+    }
 }
