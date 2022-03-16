@@ -12,7 +12,7 @@ public class Util {
 //        this.battleship =new Battleship();
     }
 
-//    public void credits() {
+//    public void credits(Battleship battleship) {
 //        display.displayCredits();
 //        pressAnyKeyToContinue();
 //       battleship.menuInteraction();

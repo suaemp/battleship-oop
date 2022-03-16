@@ -42,8 +42,8 @@ public class Input {
 
         }
         System.out.println("Something wrong, try again...");
-        getShipPlacement();
-        return Arrays.asList(0, 0);
+
+        return getShipPlacement();
 
     }
 
