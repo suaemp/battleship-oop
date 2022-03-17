@@ -22,6 +22,8 @@ public class Display {
         }
     }
 
+
+
     public void displayBoard(Board board) {
         System.out.println("              BOARD");
         System.out.println();

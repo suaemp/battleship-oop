@@ -2,11 +2,14 @@ package com.codecool.battleship;
 
 import java.util.*;
 
+import static java.lang.Math.abs;
 import static java.lang.System.exit;
 
 public class Input {
     private final Scanner scanner;
     private Board board;
+    private ShipType shipType;
+    private Display display;
 
     public Input() {
         this.scanner = new Scanner(System.in);
@@ -19,7 +22,6 @@ public class Input {
     // row - X axis, col - Y axis
     public List<Integer> getShipPlacement(ShipType shipType, Display display) {
         String coordinates = getScanner().next();
-
         List<Integer> coordinatesNew = checkInputLength(coordinates);
 
         if (checkUserInput(coordinates)) {
@@ -116,7 +118,7 @@ public class Input {
                     return false;
                 }
                 return false;
-                
+
             case 3:
                 String twoDigits = String.valueOf(coordinates.charAt(1)) + String.valueOf(coordinates.charAt(2));
                 int row = Integer.parseInt(twoDigits);
